@@ -1,0 +1,11 @@
+services:
+  wikibot:
+    image: ghcr.io/stjohann/DiscordWikiBot:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./DiscordWikiBot/config.json:/app/config.json
+      - ./DiscordWikiBot/eventStreams.json:/app/eventStreams.json
+      - ./DiscordWikiBot/token.txt:/app/token.txt
+    restart: unless-stopped
